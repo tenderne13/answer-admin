@@ -228,8 +228,50 @@ export const appRouter = [
         title: '试题库',
         component: Main,
         children: [
-            { path: 'questionList', title: '试题库列表', name: 'questionList', icon: 'link', component: resolve => { require(['@/views/question/questionbank/questionList'], resolve); } },
-            { path: 'argument-page', title: '带参页面', name: 'argument-page', icon: 'android-send', component: resolve => { require(['@/views/advanced-router/argument-page.vue'], resolve); } }
+            { path: 'questionList',
+		        title: '试题库列表',
+		        name: 'questionList',
+		        icon: 'link',
+		        component: resolve => { require(['@/views/question/questionbank/questionMain'], resolve);},
+		        children:[
+			        {
+				        path:'',
+				        name:'questionList',
+				        title: '试题库列表',
+				        icon:'link',
+				        component: resolve => { require(['@/views/question/questionbank/components/questionList'], resolve);}
+			        },
+			        {
+				        path:'questionAdd',
+				        name:'questionAdd',
+				        title: '试题新增',
+				        icon:'link',
+				        component: resolve => { require(['@/views/question/questionbank/components/questionAdd'], resolve);}
+			        }
+		        ]
+	        },
+	        { path: 'exam',
+		        title: '试卷列表',
+		        name: 'exam',
+		        icon: 'link',
+		        component: resolve => { require(['@/views/question/questionbank/questionMain'], resolve);},
+		        children:[
+			        {
+				        path:'',
+				        name:'questionList',
+				        title: '试题库列表',
+				        icon:'link',
+				        component: resolve => { require(['@/views/question/questionbank/components/questionList'], resolve);}
+			        },
+			        {
+				        path:'questionAdd',
+				        name:'questionAdd',
+				        title: '试题新增',
+				        icon:'link',
+				        component: resolve => { require(['@/views/question/questionbank/components/questionAdd'], resolve);}
+			        }
+		        ]
+	        }
         ]
     }
 ];

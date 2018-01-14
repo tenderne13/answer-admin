@@ -1,42 +1,6 @@
 <template>
     <div>
-        <Row>
-            <Col span="24">
-            <Card>
-                <p slot="title">
-                    <Icon type="ios-list"></Icon>
-                    试题列表
-                </p>
-                <p slot="extra">
-                    <Button type="primary" icon="plus" @click="initAdd">新增试题</Button>
-                </p>
-                <Row type="flex" gutter="10" justify="center" align="middle" >
-                    <Col span="24">
-                        <Form ref="formInline" :model="formInline"  inline  :label-width="50">
-                            <FormItem prop="user" label="名称">
-                                <Input type="text"  placeholder="Username">
-                                </Input>
-                            </FormItem>
-                            <FormItem prop="password" label="级别">
-                                <Select>
-                                    <Option value="初级">初级</Option>
-                                    <Option value="中级">中级</Option>
-                                    <Option value="高级">高级</Option>
-                                </Select>
-                            </FormItem>
-                            <FormItem>
-                                <Button type="primary" icon="ios-search" @click="handleSubmit('formInline')">查询</Button>
-                            </FormItem>
-                        </Form>
-                    </Col>
-                </Row>
-                <Row type="flex" justify="center" align="middle" class="advanced-router">
-                    <Table border :columns="columns7" :data="data6" style="width: 100%;"></Table>
-                </Row>
-                <Page :total="100" styles="padding-top:10px"></Page>
-            </Card>
-            </Col>
-        </Row>
+        新增试题页面
     </div>
 </template>
 <script>
@@ -122,53 +86,8 @@
                         name: 'Jon Snow',
                         age: 26,
                         address: 'Ottawa No. 2 Lake Park'
-                    },{
-		                name: 'John Brown',
-		                age: 18,
-		                address: 'New York No. 1 Lake Park'
-	                },
-	                {
-		                name: 'Jim Green',
-		                age: 24,
-		                address: 'London No. 1 Lake Park'
-	                },
-	                {
-		                name: 'Joe Black',
-		                age: 30,
-		                address: 'Sydney No. 1 Lake Park'
-	                },
-	                {
-		                name: 'Jon Snow',
-		                age: 26,
-		                address: 'Ottawa No. 2 Lake Park'
-	                }
-                ],
-	            cityList: [
-		            {
-			            value: 'New York',
-			            label: 'New York'
-		            },
-		            {
-			            value: 'London',
-			            label: 'London'
-		            },
-		            {
-			            value: 'Sydney',
-			            label: 'Sydney'
-		            },
-		            {
-			            value: 'Ottawa',
-			            label: 'Ottawa'
-		            },
-		            {
-			            value: 'Paris',
-			            label: 'Paris'
-		            },
-		            {
-			            value: 'Canberra',
-			            label: 'Canberra'
-		            }
-	            ]
+                    }
+                ]
             }
         },
         methods: {
@@ -180,11 +99,6 @@
             },
             remove (index) {
                 this.data6.splice(index, 1);
-            },
-	        initAdd(){
-		        this.$router.push({
-			        name: 'questionAdd'
-		        });
             }
         }
     }
