@@ -237,7 +237,7 @@ export const appRouter = [
 			        {
 				        path:'',
 				        name:'questionList',
-				        title: '试题库列表',
+				        title: '列表',
 				        icon:'link',
 				        component: resolve => { require(['@/views/question/questionbank/components/questionList'], resolve);}
 			        },
@@ -250,25 +250,18 @@ export const appRouter = [
 			        }
 		        ]
 	        },
-	        { path: 'exam',
+	        { path: 'examList',
 		        title: '试卷列表',
-		        name: 'exam',
+		        name: 'examList',
 		        icon: 'link',
-		        component: resolve => { require(['@/views/question/questionbank/questionMain'], resolve);},
+		        component: resolve => { require(['@/views/question/exambank/examMain'], resolve);},
 		        children:[
 			        {
 				        path:'',
-				        name:'questionList',
+				        name:'examList',
 				        title: '试题库列表',
 				        icon:'link',
-				        component: resolve => { require(['@/views/question/questionbank/components/questionList'], resolve);}
-			        },
-			        {
-				        path:'questionAdd',
-				        name:'questionAdd',
-				        title: '试题新增',
-				        icon:'link',
-				        component: resolve => { require(['@/views/question/questionbank/components/questionAdd'], resolve);}
+				        component: resolve => { require(['@/views/question/exambank/components/examList'], resolve);}
 			        }
 		        ]
 	        }

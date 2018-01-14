@@ -5,10 +5,10 @@
             <Card>
                 <p slot="title">
                     <Icon type="ios-list"></Icon>
-                    试题列表
+                    试卷列表
                 </p>
                 <p slot="extra">
-                    <Button type="primary" icon="plus" @click="initAdd">新增试题</Button>
+                    <Button type="primary" icon="plus" @click="initAdd">新增试卷</Button>
                 </p>
                 <Row type="flex" gutter="10" justify="center" align="middle" >
                     <Col span="24">
@@ -194,7 +194,7 @@
                 })
             },
             remove (index) {
-                this.questionList.splice(index, 1);
+	            this.questionList.splice(index, 1);
             },
 	        initAdd(){
 		        this.$router.push({
