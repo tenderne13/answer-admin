@@ -14,7 +14,7 @@
                     <Col span="24">
                         <Form ref="formInline" :model="formInline"  inline  :label-width="50">
                             <FormItem prop="user" label="名称">
-                                <Input type="text"  placeholder="Username">
+                                <Input type="text"  >
                                 </Input>
                             </FormItem>
                             <FormItem prop="password" label="级别">
@@ -45,26 +45,43 @@
             return {
                 columns7: [
                     {
-                        title: 'Name',
+                        title: '题目',
                         key: 'name',
                         render: (h, params) => {
+
+
+
                             return h('div', [
-                                h('Icon', {
-                                    props: {
-                                        type: 'person'
-                                    }
-                                }),
                                 h('strong', params.row.name)
                             ]);
                         }
                     },
                     {
-                        title: 'Age',
-                        key: 'age'
-                    },
-                    {
-                        title: 'Address',
-                        key: 'address'
+                        title: '难度',
+                        key: 'level',
+                        render:(h,params)=>{
+                            let levelName='';
+                            let level = params.row.level;
+                            switch (level){
+                                case 1:
+                                    levelName='初级';
+                                    break;
+                                case 2:
+                                    levelName='中级';
+                                    break;
+                                case 3:
+                                    levelName='高级';
+                                    break;
+                                default:
+                                    levelName='';
+                            }
+                            return h('div',
+                                 levelName
+                            );
+
+
+
+                        }
                     },
                     {
                         title: 'Action',
@@ -104,42 +121,42 @@
                 ],
                 data6: [
                     {
-                        name: 'John Brown',
-                        age: 18,
+                        name: '2017年最高可以获得奖',
+                        level: 1,
                         address: 'New York No. 1 Lake Park'
                     },
                     {
-                        name: 'Jim Green',
-                        age: 24,
+                        name: '还他妈的遁地的',
+                        level: 2,
                         address: 'London No. 1 Lake Park'
                     },
                     {
-                        name: 'Joe Black',
-                        age: 30,
+                        name: '2016年最高可以获得奖',
+                        level: 3,
                         address: 'Sydney No. 1 Lake Park'
                     },
                     {
-                        name: 'Jon Snow',
-                        age: 26,
+                        name: '2015年最高可以获得奖',
+                        level: 2,
                         address: 'Ottawa No. 2 Lake Park'
                     },{
-		                name: 'John Brown',
-		                age: 18,
+		                name: '2014年最高可以获得奖',
+                        level: 3,
 		                address: 'New York No. 1 Lake Park'
 	                },
 	                {
-		                name: 'Jim Green',
-		                age: 24,
+		                name: '2017年最高可以获得奖',
+                        level: 1,
 		                address: 'London No. 1 Lake Park'
 	                },
 	                {
-		                name: 'Joe Black',
-		                age: 30,
+		                name: '2017年最高可以获得奖',
+                        level: 3,
 		                address: 'Sydney No. 1 Lake Park'
 	                },
 	                {
-		                name: 'Jon Snow',
-		                age: 26,
+		                name: '2017年最高可以获得奖',
+                        level: 2,
 		                address: 'Ottawa No. 2 Lake Park'
 	                }
                 ],
@@ -175,7 +192,7 @@
             show (index) {
                 this.$Modal.info({
                     title: 'User Info',
-                    content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
+                    content: `Name：${this.data6[index].name}<br>level：${this.data6[index].level}<br>Address：${this.data6[index].address}`
                 })
             },
             remove (index) {
