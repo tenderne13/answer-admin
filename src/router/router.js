@@ -220,6 +220,17 @@ export const appRouter = [
         children: [
             { path: 'index', title: '错误页面', name: 'errorpage_index', component: resolve => { require(['@/views/error-page/error-page.vue'], resolve); } }
         ]
+    },
+    {
+        path: '/question',
+        icon: 'ios-infinite',
+        name: 'question',
+        title: '试题库',
+        component: Main,
+        children: [
+            { path: 'questionList', title: '试题库列表', name: 'questionList', icon: 'link', component: resolve => { require(['@/views/question/questionbank/questionList'], resolve); } },
+            { path: 'argument-page', title: '带参页面', name: 'argument-page', icon: 'android-send', component: resolve => { require(['@/views/advanced-router/argument-page.vue'], resolve); } }
+        ]
     }
 ];
 
